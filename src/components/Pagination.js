@@ -21,6 +21,10 @@ const PaginationStyles = styled.div`
     &.current {
       color: var(--red);
     }
+    &[disabled] {
+      pointer-events: none;
+      color: var(--grey);
+    }
   }
 `;
 
