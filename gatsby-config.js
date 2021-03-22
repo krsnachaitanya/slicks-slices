@@ -7,9 +7,11 @@ export default {
     title: `Slicks slices`,
     siteUrl: 'https://slicksslices.com',
     description: 'The best pizza place in Banglore!',
+    twitter: '@slicksSlices',
   },
   plugins: [
     'gatsby-plugin-styled-components',
+    'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-source-sanity',
       options: {
