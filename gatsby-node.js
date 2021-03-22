@@ -77,6 +77,20 @@ async function turnSlicemastersIntoPages({ graphql, actions }) {
     }
   `);
   // create a page for each slicemaster
+  // get a template
+  const singleSlicemasterTemplate = path.resolve(
+    './src/templates/Slicemaster.js'
+  );
+  data.slicemasters.nodes.forEach((person) => {
+    actions.createPage({
+      // what is the url for this new page?
+      path: `slicemaster/${person.slug.current}`,
+      component: singleSlicemasterTemplate,
+      context: {
+        slug: person.slug.current,
+      },
+    });
+  });
   // figure out how many pages there are based on how many slicemasters there are, and how many per page
   const pageSize = parseInt(process.env.GATSBY_PAGE_SIZE);
   const pageCount = Math.ceil(data.slicemasters.totalCount / pageSize);
