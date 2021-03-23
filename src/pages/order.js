@@ -5,6 +5,8 @@ import SEO from '../components/SEO';
 import useForm from '../utils/useForm';
 import calculatePizzaPrice from '../utils/calculatePizzaPrice';
 import formatMoney from '../utils/formatMoney';
+import OrderStyles from '../styles/OrderStyles';
+import MenuStyles from '../styles/MenuStyles';
 
 function OrderPage({ data: { pizzas } }) {
   const { values, updateValue } = useForm({
@@ -14,7 +16,7 @@ function OrderPage({ data: { pizzas } }) {
   return (
     <>
       <SEO title="Order a Pizza!" />
-      <form action="">
+      <OrderStyles>
         <fieldset>
           <legend>Your Info</legend>
           <label htmlFor="name">
@@ -36,10 +38,10 @@ function OrderPage({ data: { pizzas } }) {
             />
           </label>
         </fieldset>
-        <fieldset>
+        <fieldset className="menu">
           <legend>Menu</legend>
           {pizzas.nodes.map((pizza) => (
-            <div key={pizza.id}>
+            <MenuStyles key={pizza.id}>
               <Img
                 width="50"
                 height="50"
@@ -50,8 +52,8 @@ function OrderPage({ data: { pizzas } }) {
                 <h2>{pizza.name}</h2>
               </div>
               <div>
-                {['S', 'M', 'L'].map((size) => (
-                  <button type="button">
+                {['S', 'M', 'L'].map((size, i) => (
+                  <button key={i} type="button">
                     {size}{' '}
                     {formatMoney(
                       Math.ceil(calculatePizzaPrice(pizza.price, size))
@@ -59,13 +61,13 @@ function OrderPage({ data: { pizzas } }) {
                   </button>
                 ))}
               </div>
-            </div>
+            </MenuStyles>
           ))}
         </fieldset>
-        <fieldset>
+        <fieldset className="order">
           <legend>Order</legend>
         </fieldset>
-      </form>
+      </OrderStyles>
     </>
   );
 }
