@@ -6,7 +6,7 @@ const OrderStyles = styled.div`
   gap: 20px;
   fieldset {
     grid-column: span 2;
-    min-height: 600px;
+    max-height: 600px;
     overflow: auto;
     display: grid;
     gap: 1rem;

@@ -9,6 +9,7 @@ import OrderStyles from '../styles/OrderStyles';
 import MenuStyles from '../styles/MenuStyles';
 import usePizza from '../utils/usePizza';
 import PizzaOrder from '../components/PizzaOrder';
+import calculateOrderTotal from '../utils/calculateOrderTotal';
 
 function OrderPage({ data: { pizzas } }) {
   const { values, updateValue } = useForm({
@@ -81,6 +82,13 @@ function OrderPage({ data: { pizzas } }) {
             order={order}
             removeFromOrder={removeFromOrder}
           />
+        </fieldset>
+        <fieldset className="order-total">
+          <h3>
+            Total Amount:
+            {formatMoney(Math.ceil(calculateOrderTotal(order, pizzas)))}
+          </h3>
+          <button type="submit">Order Ahead</button>
         </fieldset>
       </OrderStyles>
     </>

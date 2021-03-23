@@ -6,8 +6,7 @@ import formatMoney from '../utils/formatMoney';
 
 function PizzaOrder({ order, pizzas, removeFromOrder }) {
   return (
-    <div>
-      <p>You have {order.length} items in your order!</p>
+    <>
       {order.map((orderItem, i) => {
         const pizza = pizzas.nodes.find(
           (singlePizza) => singlePizza.id === orderItem.id
@@ -33,7 +32,7 @@ function PizzaOrder({ order, pizzas, removeFromOrder }) {
           </MenuStyles>
         );
       })}
-    </div>
+    </>
   );
 }
 
