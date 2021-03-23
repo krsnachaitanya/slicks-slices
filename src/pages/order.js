@@ -1,8 +1,12 @@
+import { graphql } from 'gatsby';
 import React from 'react';
+import Img from 'gatsby-image';
 import SEO from '../components/SEO';
 import useForm from '../utils/useForm';
+import calculatePizzaPrice from '../utils/calculatePizzaPrice';
+import formatMoney from '../utils/formatMoney';
 
-function OrderPage() {
+function OrderPage({ data: { pizzas } }) {
   const { values, updateValue } = useForm({
     name: '',
     email: '',
@@ -34,6 +38,29 @@ function OrderPage() {
         </fieldset>
         <fieldset>
           <legend>Menu</legend>
+          {pizzas.nodes.map((pizza) => (
+            <div key={pizza.id}>
+              <Img
+                width="50"
+                height="50"
+                fluid={pizza.image.asset.fluid}
+                alt={pizza.name}
+              />
+              <div>
+                <h2>{pizza.name}</h2>
+              </div>
+              <div>
+                {['S', 'M', 'L'].map((size) => (
+                  <button type="button">
+                    {size}{' '}
+                    {formatMoney(
+                      Math.ceil(calculatePizzaPrice(pizza.price, size))
+                    )}
+                  </button>
+                ))}
+              </div>
+            </div>
+          ))}
         </fieldset>
         <fieldset>
           <legend>Order</legend>
@@ -42,5 +69,27 @@ function OrderPage() {
     </>
   );
 }
+
+export const query = graphql`
+  query {
+    pizzas: allSanityPizza {
+      nodes {
+        name
+        id
+        slug {
+          current
+        }
+        price
+        image {
+          asset {
+            fluid(maxWidth: 100) {
+              ...GatsbySanityImageFluid
+            }
+          }
+        }
+      }
+    }
+  }
+`;
 
 export default OrderPage;
