@@ -59,9 +59,9 @@ function OrderPage({ data: { pizzas } }) {
                 <h2>{pizza.name}</h2>
               </div>
               <div>
-                {['S', 'M', 'L'].map((size, i) => (
+                {['S', 'M', 'L'].map((size) => (
                   <button
-                    key={i}
+                    key={size}
                     type="button"
                     onClick={() => addToOrder({ id: pizza.id, size })}
                   >

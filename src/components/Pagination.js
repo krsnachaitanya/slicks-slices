@@ -43,6 +43,7 @@ function Pagination({ pageSize, totalCount, currentPage, skip, base }) {
         <Link
           className={currentPage === 1 && i === 0 ? 'current' : ''}
           to={`/${base}${i > 0 ? `/page${i + 1}` : ''}`}
+          key={i}
         >
           {i + 1}
         </Link>

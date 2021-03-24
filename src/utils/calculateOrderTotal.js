@@ -5,6 +5,6 @@ export default function calculateOrderTotal(order, pizzas) {
     const pizza = pizzas.nodes.find(
       (singlePizza) => singlePizza.id === singleOrder.id
     );
-    return acc + calculatePizzaPrice(pizza.price, singleOrder.size);
+    return acc + calculatePizzaPrice(pizza?.price, singleOrder.size);
   }, 0);
 }
