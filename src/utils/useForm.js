@@ -5,7 +5,7 @@ function useForm(defaults) {
 
   function updateValue(e) {
     // check if the value is number and convert
-    let { value } = e.target.value;
+    let { value } = e.target;
     if (e.target.type === 'number') value = parseInt(value);
     setValues({
       // copy the existing values into items
