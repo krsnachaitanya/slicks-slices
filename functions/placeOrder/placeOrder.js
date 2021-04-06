@@ -44,6 +44,15 @@ exports.handler = async (event, context) => {
   // await wait(5000);
   const body = JSON.parse(event.body);
 
+  // check if there is any input in sugarRush field
+  if (body.sugarRush) {
+    return {
+      statusCode: 400,
+      body: JSON.stringify({
+        message: `#238974 - Go to sleep...zzzzzzzzzzzzzzzzzzzzz`,
+      }),
+    };
+  }
   // Validate the data coming in is correct
   const requiredFields = ['email', 'name', 'order'];
   for (const field of requiredFields) {

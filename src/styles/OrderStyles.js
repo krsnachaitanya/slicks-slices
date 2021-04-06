@@ -19,6 +19,9 @@ const OrderStyles = styled.form`
       display: inline-block;
       padding: 0 1rem;
     }
+    .sugarRush {
+      display: none;
+    }
   }
   @media (max-width: 900px) {
     fieldset.menu,

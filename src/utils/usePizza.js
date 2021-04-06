@@ -38,6 +38,7 @@ export default function usePizza({ pizzas, inputs }) {
       total: formatMoney(Math.ceil(calculateOrderTotal(order, pizzas))),
       name: inputs.name,
       email: inputs.email,
+      sugarRush: inputs.sugarRush,
     };
     // send this data to a serverless function when they check out
     const res = await fetch(
