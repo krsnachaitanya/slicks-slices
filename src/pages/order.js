@@ -29,10 +29,10 @@ function OrderPage({ data: { pizzas } }) {
     inputs: values,
   });
   return (
-    <p>
+    <>
       <SEO title="Order a Pizza!" />
       <OrderStyles onSubmit={submitOrder}>
-        <fieldset>
+        <fieldset disabled={loading}>
           <legend>Your Info</legend>
           <label htmlFor="name">
             Name
@@ -53,7 +53,7 @@ function OrderPage({ data: { pizzas } }) {
             />
           </label>
         </fieldset>
-        <fieldset className="menu">
+        <fieldset className="menu" disabled={loading}>
           <legend>Menu</legend>
           {pizzas.nodes.map((pizza) => (
             <MenuStyles key={pizza.id}>
@@ -83,7 +83,7 @@ function OrderPage({ data: { pizzas } }) {
             </MenuStyles>
           ))}
         </fieldset>
-        <fieldset className="order">
+        <fieldset className="order" disabled={loading}>
           {message ? (
             <p>{message}</p>
           ) : (
@@ -97,7 +97,7 @@ function OrderPage({ data: { pizzas } }) {
             </>
           )}
         </fieldset>
-        <fieldset className="order-total">
+        <fieldset className="order-total" disabled={loading}>
           <h3>
             Total Amount:
             {formatMoney(Math.ceil(calculateOrderTotal(order, pizzas)))}
@@ -108,7 +108,7 @@ function OrderPage({ data: { pizzas } }) {
           </button>
         </fieldset>
       </OrderStyles>
-    </p>
+    </>
   );
 }
 
