@@ -55,6 +55,7 @@ function OrderPage({ data: { pizzas } }) {
           </label>
           <input
             className="sugarRush"
+            autoComplete="off"
             type="sugarRush"
             name="sugarRush"
             value={values.sugarRush}
