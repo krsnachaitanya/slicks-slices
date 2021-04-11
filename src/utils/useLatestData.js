@@ -2,6 +2,20 @@ import { useEffect, useState } from 'react';
 
 const gql = String.raw;
 
+// graphql fragmaents did not support so I used variable
+const deets = `                
+    name
+    _id
+    image {
+      asset {
+        url
+        metadata {
+          lqip
+        }
+      }
+    }
+`;
+
 export default function useLatestData() {
   // hot slices
   const [hotSlices, setHotSlices] = useState();
@@ -23,10 +37,10 @@ export default function useLatestData() {
             StoreSettings(id: "downtown") {
               name
               slicemaster {
-                name
+                ${deets}
               }
               hotSlices {
-                name
+                ${deets}
               }
             }
           }

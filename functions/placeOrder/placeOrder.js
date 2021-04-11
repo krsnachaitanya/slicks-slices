@@ -34,11 +34,11 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-function wait(ms = 0) {
-  return new Promise((resolve, reject) => {
-    setTimeout(resolve, ms);
-  });
-}
+// function wait(ms = 0) {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(resolve, ms);
+//   });
+// }
 
 exports.handler = async (event, context) => {
   // await wait(5000);

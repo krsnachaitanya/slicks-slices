@@ -19,6 +19,13 @@ const OrderStyles = styled.form`
       display: inline-block;
       padding: 0 1rem;
     }
+    label {
+      input {
+        display: block;
+        width: calc(100% - 1rem);
+        margin-top: 5px;
+      }
+    }
     .sugarRush {
       display: none;
     }
