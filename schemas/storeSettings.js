@@ -15,6 +15,18 @@ export default {
       description: 'Name of the pizza',
     },
     {
+      name: 'heading',
+      title: 'Store Heading',
+      type: 'string',
+      description: 'Main heading of the home page',
+    },
+    {
+      name: 'openTiming',
+      title: 'Open Timing',
+      type: 'string',
+      description: 'Open timings of the store',
+    },
+    {
       name: 'slicemaster',
       title: 'Slicemasters currently slicing',
       type: 'array',
