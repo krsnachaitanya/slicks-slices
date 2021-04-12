@@ -3,7 +3,9 @@ import React from 'react';
 function Footer() {
   return (
     <footer>
-      <p>&copy; Slick's Slices {new Date().getFullYear()} </p>
+      <p className="center">
+        &copy; Slick's Slices {new Date().getFullYear()}{' '}
+      </p>
     </footer>
   );
 }

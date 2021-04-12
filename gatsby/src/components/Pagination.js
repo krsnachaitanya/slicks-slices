@@ -26,6 +26,9 @@ const PaginationStyles = styled.div`
       color: var(--grey);
     }
   }
+  @media (max-width: 450px) {
+    font-size: 1.4rem;
+  }
 `;
 
 function Pagination({ pageSize, totalCount, currentPage, skip, base }) {

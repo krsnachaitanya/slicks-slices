@@ -52,7 +52,7 @@ export default function useLatestData() {
         // set the data to state
         setHotSlices(res.data.StoreSettings.hotSlices);
         setSliceMasters(res.data.StoreSettings.slicemaster);
-        console.log(res.data);
+        // console.log(res.data);
       });
   }, []);
 
